@@ -1,5 +1,5 @@
 Synthetic Metabolic Dataset Analysis
-Introduction
+Introduction  
 
 This project generates and analyzes a synthetic dataset of 10,000 adults, reflecting the age and BMI distribution of the US adult population. It employs algorithms to simulate health metrics, assessing the prevalence and risk factors associated with metabolic syndrome. Python libraries numpy, pandas, matplotlib, and random are used for data analysis and visualization.
 
