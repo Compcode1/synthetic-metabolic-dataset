@@ -1,34 +1,25 @@
-Synthetic Metabolic Dataset Analysis
-Introduction  
+This project generates and analyzes a synthetic dataset of 10,000 adults, reflecting the age, BMI, waist circumference, fasting blood glucose, HDL, Triglyceride and high blood pressure distributions of the adult US population. I utilized the United Stated statistical trends as detailed by NHANES (CDC). By employing various novel algorithms to simulate realistic health metrics, we will be able to utilize this dataset to further analyze risk factors associated with metabolic syndrome.
 
-This project generates and analyzes a synthetic dataset of 10,000 adults, reflecting the age and BMI distribution of the US adult population. It employs algorithms to simulate health metrics, assessing the prevalence and risk factors associated with metabolic syndrome. Python libraries numpy, pandas, matplotlib, and random are used for data analysis and visualization.
+Initial Imports: The project begins by importing essential Python libraries: numpy for numerical operations, pandas for data manipulation, matplotlib.pyplot for visualizations, and random for generating random numbers. These libraries form the foundational toolkit for handling data, performing statistical calculations, and plotting graphs.
 
-Key Components:
+Adult Population Dataset Generator: The code generates a synthetic dataset of 10,000 adults, mimicking the age and BMI distribution of the adult US population. It defines age groups and their proportions, generating an age distribution accordingly. The dataset includes 'Age' and 'Gender' columns, with BMI values created based on specified characteristics for each age group. This dataset closely mirrors the age and BMI distribution, making it suitable for analyzing metabolic health risks.
 
-Dataset Generation: Creates a synthetic dataset mirroring age and BMI distribution of the US adult population.
-Waist Circumference: Generates values based on BMI, age, and gender.
-Fasting Blood Glucose: Uses age and BMI to simulate FBG levels.
-Triglycerides and HDL Cholesterol: Generates values based on age, gender, and BMI.
-High Blood Pressure: Assigns status based on age and BMI.
-Metabolic Syndrome Identification: Classifies individuals based on established clinical criteria.
-Data Visualization: Analyzes health metrics by BMI and age.
-Comparative Analysis: Compares synthetic data with NHANES reference data.
-Conclusion
+Waist Circumference Generation Algorithm: A function generates realistic waist circumference values based on BMI, age, and gender. The algorithm uses linear relationships, age adjustment factors, and random variation to simulate individual differences. The function integrates into the main dataset using pandas' apply method.
 
-The synthetic dataset aligns closely with the US adult population's metabolic syndrome prevalence (34.58%). Visualization and comparative analysis reveal critical health trends and highlight areas for refinement.
+Fasting Blood Glucose Generation Algorithm: A function generates fasting blood glucose (FBG) values based on age and BMI, using a probabilistic approach. BMI categories are defined, and base probabilities for elevated FBG are adjusted by an age factor. Values are generated using uniform distributions, reflecting realistic ranges. This function integrates into the main dataset using pandas' apply method.
 
-Key Findings:
-Females with Waist Circumference ≥ 35 inches: 58.83%
-Males with Waist Circumference ≥ 40 inches: 63.42%
-Fasting Blood Glucose ≥ 100 mg/dL: 40.93%
-Triglycerides > 150 mg/dL: 30.56%
-Males with HDL < 40 mg/dL: 32.47%
-Females with HDL < 50 mg/dL: 15.05%
-High Blood Pressure: 42.41%
-Applications:
+Triglyceride Level Generation Algorithm: A function generates triglyceride levels based on age and BMI category using a stratified probabilistic approach. Parameters for triglyceride levels are defined for each BMI category, with age adjustments for probabilities. Values are generated using uniform distributions and integrated into the main dataset with pandas' apply method.
 
-Privacy Preservation: Protects individual privacy while analyzing trends.
-Algorithm Testing: Develops, tests, and trains machine learning models.
-Scenario Simulation: Predicts outcomes and optimizes public health strategies.
-Education: Provides a risk-free environment for learning data analysis.
-Benchmarking: Validates new analytical tools before real-world application.
+HDL Cholesterol Generation Algorithm: A function generates HDL cholesterol levels based on age, gender, and BMI category using a probabilistic approach. Gender-specific thresholds and age adjustments are applied to generate values, reflecting realistic distributions. This function uses NumPy for random generation and integrates with the main dataset using pandas' apply method.
+
+High Blood Pressure Assignment Algorithm: A function assigns high blood pressure status based on age and BMI category using a probabilistic approach. Base probabilities and age adjustments are applied, with random generation determining the status. This binary status is integrated into the dataset using pandas' apply method.
+
+Identifying Metabolic Syndrome and Standardizing Dataset Columns: This code identifies individuals with metabolic syndrome using a function that checks for five criteria: abdominal obesity, elevated triglycerides, reduced HDL cholesterol, elevated blood pressure, and elevated fasting glucose. Meeting at least three criteria classifies an individual as having metabolic syndrome. The function is applied to each row, creating a new Metabolic_Syndrome column. The code also standardizes column names for consistency and performs initial data exploration, preparing the dataset for further analysis.
+
+Metabolic Syndrome Classification Algorithm: A function classifies individuals for metabolic syndrome using clinical criteria, applying gender-specific thresholds for waist circumference and HDL cholesterol. The function is applied to each dataset row, generating a binary classification. The overall prevalence of metabolic syndrome is calculated and printed, along with a sample of the updated dataset.
+
+Data Visualization of Health Metrics by BMI: A comprehensive data visualization strategy analyzes the relationship between BMI and various health metrics, segregated by gender. Data aggregation, dual-line plots, and fine-tuning of plot aesthetics facilitate efficient visualization of complex relationships, enabling quick identification of trends and gender-specific patterns.
+
+Data Visualization of Health Metrics by Age: A similar data visualization strategy analyzes the relationship between age and various health metrics, segregated by gender. Age-based aggregation and dual-line plots reveal age-related health trends, providing insights for age-specific health interventions.
+
+Comparative Analysis of Synthetic Data against NHANES Reference: A data analysis algorithm compares the synthetic dataset with NHANES reference data, focusing on key health metrics. Percentage calculations and deviation measures provide insights into the alignment and deviations of the synthetic data from real-world statistics. This approach helps refine the data generation process for accuracy.
